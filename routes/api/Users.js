@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const gravatar = require('gravatar');``
+const gravatar = require('gravatar');
 const User = require('../../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -22,7 +22,7 @@ router.post(
          .isLength({ min: 6 })
    ],
    async (req, res) => {
-      const errors = validationResult(req);
+      const errors = validationResult(req); //returns an array of errors
       if(!errors.isEmpty()) {
          return res.status(400).json({ errors: errors.array() });
       }
